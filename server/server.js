@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 
 const app = express();
 // App PORT set with production check
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
+
+//axios import
+const axios = require('axios');
 
 // Route includes
 const favoriteRouter = require('./routes/favorite.router');
@@ -19,6 +22,22 @@ app.use(express.static('build'));
 // Routes
 app.use('/api/favorite', favoriteRouter);
 app.use('/api/category', categoryRouter);
+
+//Giphy route
+const giphy_api_key = "PLACE KEY HERE"
+const search_query = "cheese";
+
+app.get('/gifs', (req,res) => {
+    axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search_query}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips
+
+    `)
+    .then((response) => {
+        res.send(response.data)
+    }).catch((error) => {
+        console.log('get /gifs fail: ', error);
+        res.sendStatus(500)
+    })
+});
 
 // Listen
 app.listen(PORT, () => {
