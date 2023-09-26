@@ -12,3 +12,9 @@ CREATE TABLE "category" (
 -- Default categories. You may change them :)
 INSERT INTO "category" ("name")
 VALUES ('funny'), ('cohort'), ('cartoon'), ('nsfw'), ('meme');
+
+
+CREATE TABLE "favorite" (
+    "id" SERIAL PRIMARY KEY,
+    "gif-id" VARCHAR (100) NOT NULL -- what ever data needs to be saved to re-display the gif
+);
