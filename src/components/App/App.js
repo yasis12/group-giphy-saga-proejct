@@ -22,13 +22,9 @@ function App(props) {
           <Route exact path='/search'>
             <SearchView />
           </Route>
-
           <Route path='/favorite'>
             <FavoriteView />
           </Route>
-
-
-
         </Switch>
       </Router>
 
