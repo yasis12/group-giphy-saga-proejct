@@ -23,19 +23,24 @@ app.use(express.static('build'));
 app.use('/api/favorite', favoriteRouter);
 app.use('/api/category', categoryRouter);
 
-//Giphy route
-const giphy_api_key = "4e7rTkfZgyilJuVKQhZChcVSyLbBW92V"
-const search_query = "cheese";
-// THis has to be a post route for it to work
-app.post('/gifs', (req,res) => {
-    axios.post(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search_query}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`)
-    .then((response) => {
-        res.send(response.data)
-    }).catch((error) => {
-        console.log('get /gifs fail: ', error);
-        res.sendStatus(500)
-    })
-});
+//Giphy Post route
+app.post('/api/search', (req, res) => {
+    const { search } = req.body;
+    const giphy_api_key = "4e7rTkfZgyilJuVKQhZChcVSyLbBW92V";
+    
+    axios
+      .get(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`)
+      .then((response) => {
+        const gifs = response.data.data;
+        // Send the fetched GIFs as a response
+        res.json(gifs);
+      })
+      .catch((error) => {
+        console.error('Error fetching GIFs:', error);
+        res.status(500).json({ error: 'Error fetching GIFs' });
+      });
+  });
+  
 
 // Listen
 app.listen(PORT, () => {

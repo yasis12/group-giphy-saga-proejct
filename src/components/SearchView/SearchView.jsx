@@ -1,50 +1,39 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function SearchView() {
-
-    const dispatch = useDispatch();
     
     const [theGifs, setTheGifs] = useState([]);
     const [newSearch, setNewSearch] = useState('');
 
     const handleSearch = (event) => {
       event.preventDefault();
-      dispatch({
-          type: 'SET_SEARCH',
-          payload: newSearch
-      })
-    };
-
-  
-      const fetchGifs = () => {
-        console.log('running fetch');
-        axios.post('/gifs')
+    
+      axios
+        .post('/api/search', { search: newSearch })
         .then((response) => {
-          const apiResponse = response.data
-          console.log('API Response', apiResponse);
-          setTheGifs(apiResponse.data)
-        }).catch((error) => {
-          console.log('error', error);
+          const gifs = response.data;
+          setTheGifs(gifs);
         })
-      }
+        .catch((error) => {
+          console.error('Error fetching GIFs:', error);
+        });
+    };
+    
 
-      // useEffect
-      useEffect(() => {
-        fetchGifs()
-      }, [])
-  
       return (
         <div>
             {/* Search bar */}
             <div className='search-bar'>
-                <input type="text" placeholder='are ya looking for something' />
+                <input 
+                type="text" 
+                placeholder='are ya looking for something' 
+                onChange={event => setNewSearch(event.target.value)}
+                />
                 <button 
                   onClick={handleSearch} 
-                  value={newSearch} 
-                  onChange={event => setNewSearch(event.target.value)}
                 >Search</button>
             </div>
 

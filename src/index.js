@@ -6,7 +6,7 @@ import {createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-
+// Reducer
 const search = (state = [], action) => {
     if (action.type === 'SET_SEARCH') {
         return action.payload
@@ -14,6 +14,7 @@ const search = (state = [], action) => {
     return state;
 };
 
+//Redux store
 const reduxStore = createStore(
     combineReducers({
         search
@@ -21,6 +22,7 @@ const reduxStore = createStore(
     applyMiddleware(logger)
 );
 
+//App
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>

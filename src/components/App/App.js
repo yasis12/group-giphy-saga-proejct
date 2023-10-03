@@ -6,13 +6,7 @@ import NavBar from '../NavBar/NavBar';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 
-function App(props) {
-
-
-
-
-
-
+function App() {
 
   return (
     <div className='App'>
