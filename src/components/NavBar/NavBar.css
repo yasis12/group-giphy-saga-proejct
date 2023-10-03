@@ -21,3 +21,14 @@
   h1 {
     font-style: italic;
   }
+
+  .button-div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-button {
+    padding-right: 10px; 
+    margin-right: 20px;
+  }
+  

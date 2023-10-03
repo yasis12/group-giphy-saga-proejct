@@ -24,7 +24,7 @@ app.use('/api/favorite', favoriteRouter);
 app.use('/api/category', categoryRouter);
 
 //Giphy route
-const giphy_api_key = "PLACE KEY HERE"
+const giphy_api_key = "add api key here"
 const search_query = "cheese";
 // THis has to be a post route for it to work
 app.get('/gifs', (req,res) => {
