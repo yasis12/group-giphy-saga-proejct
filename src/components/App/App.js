@@ -19,11 +19,11 @@ function App(props) {
       <Router>
         <NavBar />
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/search'>
             <SearchView />
           </Route>
 
-          <Route path='/'>
+          <Route path='/favorite'>
             <FavoriteView />
           </Route>
 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './SearchView.css'
 
 
 function SearchView() {

@@ -1,32 +1,27 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import './NavBar.css'
+import { useHistory } from 'react-router-dom';
 
-
-//Material UI dialog box 
-import Button from '@mui/material/Button';
 
 function NavBar() {
 
+    const history = useHistory()
+
+    const handleSearchClick = () => {
+        history.push('/search')
+    }
+
+    const handleFavoriteClick = () => {
+        history.push('/favorite')
+    }
 
     return (
         <>
             <header className='App-header'>
-                <h1 className='App-title'> Giphy Project </h1>
+                <h1 className='App-title'> Giphy Search Project </h1>
 
-                <Button
-                    component={Link}
-                    to={"/"}
-                    variant="contained"
-                    color="primary"
-                > Home </Button>
-
-                <Button
-                    component={Link}
-                    to={"/FavoriteView"}
-                    variant="contained"
-                    color="primary"
-                > Favorites </Button>
+                <button onClick={handleSearchClick}> Home </button>
+                <button onClick={handleFavoriteClick}> Favorites </button>
 
             </header>
 
