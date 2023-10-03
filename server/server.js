@@ -26,9 +26,9 @@ app.use('/api/category', categoryRouter);
 //Giphy route
 const giphy_api_key = "PLACE KEY HERE"
 const search_query = "cheese";
-
+// THis has to be a post route for it to work
 app.get('/gifs', (req,res) => {
-    axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search_query}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips
+    axios.post(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search_query}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips
 
     `)
     .then((response) => {
