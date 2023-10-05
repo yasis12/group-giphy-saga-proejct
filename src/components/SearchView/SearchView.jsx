@@ -11,10 +11,10 @@ function SearchView() {
     const handleSearch = (event) => {
       event.preventDefault();
     
-      axios
-        .post('/api/search', { search: newSearch })
+      axios.post('/api/search', { search: newSearch })
         .then((response) => {
           const gifs = response.data;
+          console.log('GIFS response data', gifs);
           setTheGifs(gifs);
         })
         .catch((error) => {
@@ -43,7 +43,7 @@ function SearchView() {
                     {theGifs.map((gif) => (
                     <div className="gif-item" key={gif.id}>
                         <img src={gif.images.fixed_height.url} alt={gif.title} />
-                        {/* <button onClick={() => handleFavorite(gif)}>Favorite</button> */}
+                        <button onClick={() => handleFavorite(gif)}>Favorite</button>
                     </div>
                     ))}
                 </div>

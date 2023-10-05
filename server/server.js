@@ -27,10 +27,11 @@ app.use('/api/category', categoryRouter);
 app.post('/api/search', (req, res) => {
     const { search } = req.body;
     const giphy_api_key = "4e7rTkfZgyilJuVKQhZChcVSyLbBW92V";
-    
+    console.log('search term', search);
     axios
       .get(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`)
       .then((response) => {
+        console.log(response.data);
         const gifs = response.data.data;
         // Send the fetched GIFs as a response
         res.json(gifs);
