@@ -67,3 +67,17 @@ You are given two router modules on the server with stubs for the routes you may
     - User should be able to edit an existing category
     - User should be able to delete/remove an existing category
 
+
+
+## Read me practice
+This application is intended to let a user serach for their favorite gifs and save them for future use. 
+
+Technologies:
+Node
+express
+react
+SQL
+postgres
+Redux 
+HTML
+CSS
