@@ -16,5 +16,6 @@ VALUES ('funny'), ('cohort'), ('cartoon'), ('nsfw'), ('meme');
 
 CREATE TABLE "favorite" (
     "id" SERIAL PRIMARY KEY,
-    "gif-id" VARCHAR (100) NOT NULL -- what ever data needs to be saved to re-display the gif
+    "gif-id" VARCHAR (100) NOT NULL,
+    "gif-url" VARCHAR (250) NOT NULL
 );

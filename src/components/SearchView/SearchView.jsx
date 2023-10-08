@@ -21,6 +21,17 @@ function SearchView() {
           console.error('Error fetching GIFs:', error);
         });
     };
+
+    const handleFavorite= (gifId, gifUrl) => {
+      axios.post('/api/favorite', { gifId, gifUrl })
+      .then(response => 
+        console.log('Favorited GIF: ', response.data)
+      )
+      .catch(error => {
+        console.error(error);
+        alert('Something went wrong.');
+      });
+    }
     
 
       return (
@@ -42,8 +53,8 @@ function SearchView() {
                 <div className="gif-grid">
                     {theGifs.map((gif) => (
                     <div className="gif-item" key={gif.id}>
-                        <img src={gif.images.fixed_height.url} alt={gif.title} />
-                        <button onClick={() => handleFavorite(gif)}>Favorite</button>
+                        <img src={gif.images.fixed_height.url} />
+                        <button onClick={() => handleFavorite(gif.id, gif.images.fixed_height.url)}>Favorite</button>
                     </div>
                     ))}
                 </div>

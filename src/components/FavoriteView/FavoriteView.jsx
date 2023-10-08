@@ -1,19 +1,31 @@
-// import React, { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+// import { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { useSelector } from 'react-redux';
 // import './FavoriteView.css'
 
 
 
 // function FavoriteView() {
 
-//     const dispatch = useDispatch();
 
-//     const plantList = useSelector(store => store.plantList);
+//   const user = useSelector((store) => store.user);
 
-//     useEffect(() => {
-//         console.log('component did mount');
-//         dispatch({ type: 'FETCH_FAVORITES' });
-//     }, []);
+//   const [favoriteList, setFavoriteList] = useState([]);
+
+
+//   useEffect(() => {
+//     fetchFavoriteList();
+//   }, []);
+
+//   const fetchFavorite = () => {
+//     axios.get('/api/favorite').then((response) => {
+//       setFavoriteList(response.data);
+//     }).catch((error) => {
+//       console.log(error);
+//       alert('Something went wrong.');
+//     });
+//   }
+
 
 //     const removeFavorite = (id) => {
 //         dispatch({ type: 'REMOVE_PLANT', payload: id });
@@ -25,22 +37,30 @@
 //         <>
 
 //             <h3 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '25px' }}> Favorite View </h3>
-       
 
-//                 <div style={{ display: 'flex', flexDirection: 'row' }}>
-//                     {
-//                         plantList.map(plant => (
-//                             <favoriteItem key={plant.id}>
-//                                 <p> {} </p>
+//  <p>All of the available items can be seen here.</p>
+// {
+//   shelfList.length === 0 && (
+//     <div>No items on the shelf</div>
+//   )
+// }
+// {
+//   shelfList.map(item => {
+//     return <div className="responsive" key={item.id}>
+//               <div className="gallery">
+//                   <img src={item.image_url} alt={item.description} />
+//                   <br />
+//                   <div className="desc">{item.description}</div>
+//                   <div style={{textAlign: 'center', padding: '5px'}}>
+//                     <button style={{cursor: 'pointer'}}>Delete</button>
+//                   </div>
+//               </div>
+//            </div>
+//   })
+// }
+        
 
-//                                 <button onClick={() => removeFavorite(plant.id)}>
-//                                     Remove
-//                                 </button>
 
-//                             </favoriteItem>
-//                         ))
-//                     }
-//                 </div>
 //         </>
 
 //     );

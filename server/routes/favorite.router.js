@@ -10,13 +10,23 @@ router.get('/', (req, res) => {
 
 // add a new favorite
 router.post('/', (req, res) => {
-  res.sendStatus(200);
+  console.log('/favorite POST route');
+  console.log('GIF TO POST: ', req.body);
+    // add the new gif to favorites
+    let queryText = `INSERT INTO "favorite" ( "gif-id", "gif-url")
+                      VALUES ($1, $2)`;
+    pool.query(queryText, [req.body.gifId, req.body.gifUrl ])
+    .then(results => {
+      res.sendStatus(201);
+  }).catch(error => {
+      console.log(error);
+      res.sendStatus(500);
+  });
 });
 
 // update given favorite with a category id
 router.put('/:favId', (req, res) => {
-  // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
+ res.sendStatus(200);
 });
 
 // delete a favorite
