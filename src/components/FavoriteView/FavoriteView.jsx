@@ -44,10 +44,10 @@ function FavoriteView() {
     {favoriteList.map((favorite) => (
       <div className="gif-item" key={favorite['gif-id']}>
         <img src={favorite['gif-url']} alt={`Favorite GIF ${favorite['gif-id']}`} />
-        {/* <h5>category:</h5>
-<h5>{favorite['category_name']}</h5> */}
         <h5>category:</h5>
-        <h5>{favorite['category_id']}</h5>
+        <h5>{favorite['category_name']}</h5>
+
+  
 
         <form onSubmit={(event) => {
             event.preventDefault();
