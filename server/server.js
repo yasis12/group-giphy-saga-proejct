@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+//DOTENV
+const dotenv = require('dotenv');
+dotenv.config()
 
 const app = express();
 // App PORT set with production check
@@ -26,7 +29,7 @@ app.use('/api/category', categoryRouter);
 //Giphy Post route
 app.post('/api/search', (req, res) => {
     const { search } = req.body;
-    const giphy_api_key = "PzNsFhllqUz0ZblogWIjebkfKNo92ak0";
+    const giphy_api_key = process.env.GIPHY_API_KEY;
     console.log('search term', search);
     axios
       .get(`https://api.giphy.com/v1/gifs/search?api_key=${giphy_api_key}&q=${search}&limit=25&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`)
