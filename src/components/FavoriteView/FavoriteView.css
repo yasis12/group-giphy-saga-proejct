@@ -1,0 +1,47 @@
+.gif-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .gif-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 200px;
+  }
+  
+  .gif-item {
+    width: 100%;
+    max-width: 300px;
+    background-color: #330A0A;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 10px;
+    color: black;
+  }
+  
+  .gif-item img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  select, button {
+    width: 100px; /* Make the select and button full width */
+    padding: 10px; /* Increase padding for size */
+    background-color: #330A0A; 
+    color: white;/* Same background color as your button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  select:hover, button:hover {
+    background-color: #965A5A;
+  }
+
+  .categoryForm {
+    color: #965A5A;
+  }
+  

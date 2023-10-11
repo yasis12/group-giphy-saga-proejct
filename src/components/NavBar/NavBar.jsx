@@ -8,7 +8,7 @@ function NavBar() {
     const history = useHistory()
 
     const handleSearchClick = () => {
-        history.push('/search')
+        history.push('/')
     }
 
     const handleFavoriteClick = () => {

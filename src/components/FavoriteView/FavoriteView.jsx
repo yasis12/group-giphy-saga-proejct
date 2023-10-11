@@ -44,6 +44,7 @@ function FavoriteView() {
     {favoriteList.map((favorite) => (
       <div className="gif-item" key={favorite['gif-id']}>
         <img src={favorite['gif-url']} alt={`Favorite GIF ${favorite['gif-id']}`} />
+        <br />
         <h5>category:</h5>
         <h5>{favorite['category_name']}</h5>
 
@@ -53,6 +54,7 @@ function FavoriteView() {
             event.preventDefault();
             const value = event.target.genre.value;
             addCategory(value, favorite['gif-id']);
+            className='categoryForm'
           }}>
             <select name="genre" id="gifs">
               <option value="1">funny</option>

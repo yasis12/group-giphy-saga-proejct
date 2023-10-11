@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import './SeachView.css';
+
 
 
 function SearchView() {
@@ -34,36 +35,37 @@ function SearchView() {
     }
     
 
-      return (
-        <div>
-            {/* Search bar */}
-            <div className='search-bar'>
-                <input 
-                type="text" 
-                placeholder='are ya looking for something' 
-                onChange={event => setNewSearch(event.target.value)}
-                />
-                <button 
-                  onClick={handleSearch} 
-                >Search</button>
-            </div>
-
-            {/* displays the gifs */}
-            <div className='gif-container'>
-                <div className="gif-grid">
-                    {theGifs.map((gif) => (
-                    <div className="gif-item" key={gif.id}>
-                        <img src={gif.images.fixed_height.url} />
-                        <button onClick={() => handleFavorite(gif.id, gif.images.fixed_height.url)}>Favorite</button>
-                    </div>
-                    ))}
-                </div>
-            </div>
-        
-
+    return (
+      <div>
+        {/* Search bar */}
+        <div className='search-bar'>
+          <input
+            type="text"
+            placeholder='Are you looking for something'
+            onChange={event => setNewSearch(event.target.value)}
+          />
+          <button onClick={handleSearch}>Search</button>
         </div>
-        
-      );
+  
+        {/* Displays the gifs */}
+        <div className='gif-container'>
+          <div className="gif-grid">
+            {theGifs.map((gif) => (
+              <div className="gif-item" key={gif.id}>
+                <img src={gif.images.fixed_height.url} />
+                <br />
+                <button
+                  className="favorite-button"
+                  onClick={() => handleFavorite(gif.id, gif.images.fixed_height.url)}
+                >
+                  Favorite
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
     
 };
 

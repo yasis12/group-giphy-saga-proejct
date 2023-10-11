@@ -1,30 +1,75 @@
-.gif-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; 
-    justify-content: space-between; 
-  }
-  
-  .gif-grid {
-    flex: 3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; 
-    margin: -1rem; 
-  }
-  
-  .gif-item {
-    flex: 0 0 calc(33.33% - 2rem); 
-    margin: 1rem; 
-    animation: fadeUp 1s;
-  }
-  
-  .gif-item img {
-    width: 100%;
-    height: auto;
-  }
-  
+/* styles.css */
 
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.gif-container {
+  display: flex;
+  justify-content: center;
+}
+
+.gif-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 20px;
+}
+
+.gif-item {
+  width: 100%; /* Make the cards take 100% of the column width */
+  max-width: 300px; /* Limit the maximum width of the cards */
+  background-color: #FCCACA;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.gif-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.favorite-button {
+  background-color: #330A0A;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover {
+  background-color: #965A5A;
+}
+
+
+
+.search-bar input {
+  width: 20%; /* Make the input wider */
+  padding: 10px; /* Increase padding for size */
+  background-color: #252525; /* Dark background color for the input */
+  border-radius: 5px; /* Apply a slight halo effect with border-radius */
+  color: #fff; /* Text color */
+}
+
+.search-bar button {
+  background-color: #FCCACA;
+  color: #000000;
+  border: none;
+  padding: 10px 20px; /* Increase padding for size */
+  border-radius: 5px; /* Apply a slight halo effect with border-radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100px;
+}
+
+.search-bar button:hover {
+  background-color: #965A5A;
+}
   
   
   
