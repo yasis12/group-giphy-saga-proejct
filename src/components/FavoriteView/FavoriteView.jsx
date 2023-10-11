@@ -45,8 +45,11 @@ function FavoriteView() {
       <div className="gif-item" key={favorite['gif-id']}>
         <img src={favorite['gif-url']} alt={`Favorite GIF ${favorite['gif-id']}`} />
         <br />
-        <h5>category:</h5>
-        <h5>{favorite['category_name']}</h5>
+        <div className="category-container">
+          <h5>category:</h5>
+          <h5>{favorite['category_name']}</h5>
+        </div>
+      
 
   
 
